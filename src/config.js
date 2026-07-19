@@ -21,6 +21,12 @@ const config = {
     .map(origin => origin.trim())
     .filter(Boolean),
 
+  // Vercel mints a fresh randomized preview URL for this project on every
+  // deploy (ai-resume-analyzer-<hash>-veerunjoys-projects.vercel.app), so a
+  // static allow-list can't keep up. Match any deployment of this specific
+  // Vercel project/team in addition to the fixed CORS_ORIGIN list above.
+  corsOriginPattern: /^https:\/\/ai-resume-analyzer(-[a-z0-9]+)*-veerunjoys-projects\.vercel\.app$/,
+
   // Redis (for Bull queues); set to 'mock' for in-memory testing
   redisUrl: process.env.REDIS_URL || 'redis://127.0.0.1:6379',
 

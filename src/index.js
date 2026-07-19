@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 app.use(cors({
   origin(origin, callback) {
     // Allow non-browser requests (curl, server-to-server, health checks) with no Origin header
-    if (!origin || config.corsOrigins.includes(origin)) {
+    if (!origin || config.corsOrigins.includes(origin) || config.corsOriginPattern.test(origin)) {
       return callback(null, true);
     }
     return callback(new Error(`Not allowed by CORS: ${origin}`));
