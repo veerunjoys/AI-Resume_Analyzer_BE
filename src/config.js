@@ -14,6 +14,13 @@ const config = {
   // JWT
   jwtSecret: process.env.JWT_SECRET || 'recruiter_secret_key_default_123',
 
+  // CORS — comma-separated list of allowed frontend origins (e.g. your Vercel URL).
+  // Falls back to common local dev origins when unset.
+  corsOrigins: (process.env.CORS_ORIGIN || 'http://localhost:5173,http://localhost:3000')
+    .split(',')
+    .map(origin => origin.trim())
+    .filter(Boolean),
+
   // Redis (for Bull queues); set to 'mock' for in-memory testing
   redisUrl: process.env.REDIS_URL || 'redis://127.0.0.1:6379',
 
