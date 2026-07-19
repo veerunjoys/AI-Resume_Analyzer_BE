@@ -1,0 +1,21 @@
+{
+  "name": "rw-event-system",
+  "version": "1.0.0",
+  "description": "Event System service for Recruiter Workspace pipeline",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js"
+  },
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.21.0",
+    "pino": "^9.2.0"
+  },
+  "devDependencies": {
+    "pino-pretty": "^11.2.1"
+  }
+}
